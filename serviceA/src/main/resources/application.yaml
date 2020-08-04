@@ -1,0 +1,15 @@
+server:
+  port: 19000
+serviceb:
+  server: localhost
+  port: 20000
+springAppName: ServiceA
+logging:
+  level:
+    ROOT: INFO
+  file:
+    path: logs
+    name: ${logging.file.path}/servicea.log
+  pattern:
+    file: '%d{dd-MM-yyyy HH:mm:ss.SSS} %5p [${springAppName},%X{X-B3-TraceId:-},%X{X-B3-SpanId:-},%X{X-Span-Export:-}] [%thread] %-5level %logger{36}.%M - %msg%n'
+    console: '%d{dd-MM-yyyy HH:mm:ss.SSS} %5p [${springAppName},%X{X-B3-TraceId:-},%X{X-B3-SpanId:-},%X{X-Span-Export:-}] %magenta([%thread]) %highlight(%-5level) %logger{36}.%M - %msg%n'

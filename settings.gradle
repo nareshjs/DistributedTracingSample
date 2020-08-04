@@ -1,0 +1,6 @@
+rootProject.name = 'DistributedTracingSample'
+
+include 'ProtoModelForTracing'
+include 'serviceA'
+include 'serviceB'
+include 'serviceC'

@@ -1,0 +1,16 @@
+syntax = "proto3";
+package com.nj.samples.tracing.model;
+
+option java_multiple_files = true;
+
+service ProjectService {
+    rpc ImportProject(ImportProjectRequest) returns (ImportProjectResponse) {}
+}
+
+message ImportProjectResponse {
+    string message = 1;
+}
+
+message ImportProjectRequest {
+    string project_file_path = 1;
+}

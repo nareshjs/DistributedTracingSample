@@ -1,0 +1,16 @@
+grpc:
+  port: 20000
+servicec:
+  server: localhost
+  port: 21000
+  resturi: http://${servicec.server}:21001/servicec/b
+springAppName: ServiceB
+logging:
+  level:
+    ROOT: INFO
+  file:
+    path: logs
+    name: ${logging.file.path}/serviceb.log
+  pattern:
+    file: '%d{dd-MM-yyyy HH:mm:ss.SSS} %5p [${springAppName},%X{X-B3-TraceId:-},%X{X-B3-SpanId:-},%X{X-Span-Export:-}] [%thread] %-5level %logger{36}.%M - %msg%n'
+    console: '%d{dd-MM-yyyy HH:mm:ss.SSS} %5p [${springAppName},%X{X-B3-TraceId:-},%X{X-B3-SpanId:-},%X{X-Span-Export:-}] %magenta([%thread]) %highlight(%-5level) %logger{36}.%M - %msg%n'
